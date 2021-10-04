@@ -1,0 +1,30 @@
+{% load static %}
+
+<div class="sidenav">
+    <div class="sidenav-header">
+        <img src="{% static 'imgs/Univalle_logo.png' %}" alt="[Logo UV]" width="50px" height="50px">
+        Calendario
+    </div>
+
+    <a class="active" href="{% url 'actividades' %}">
+        <i class="bi bi-clipboard-data"></i>
+        Actividades
+    </a>
+    <a href="{% url 'crear-actividad' %}">
+        <i class="bi bi-clipboard-plus"></i>
+        Crear Actividad
+    </a>
+
+    <a class="active" href="">
+        <i class="bi bi-calendar-week"></i>
+        Calendario actual
+    </a>
+    <a href="">
+        <i class="bi bi-calendar-plus"></i>
+        Crear Calendario
+    </a>
+    <a href="">
+        <i class="bi bi-tools"></i>
+        Editar Calendario
+    </a>
+</div>

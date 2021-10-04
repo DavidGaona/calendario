@@ -1,0 +1,144 @@
+body {
+    font-family: Consolas, serif;
+    font-size: 1.0rem;
+    background-color: #050612;
+}
+
+.main {
+    margin: 60px 60px 60px 310px;
+    font-size: 28px;
+    padding: 0 10px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #050613;
+    overflow-x: hidden;
+    text-align: center;
+    vertical-align: center;
+    border-right-width: 2px;
+    border-right-color: #837A6C!important;
+    border-right: solid;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #7E96B0;
+    display: block;
+    text-align: left;
+}
+
+.sidenav a:hover {
+    color: #FFFFFF;
+    background-color: #2F324A;
+}
+
+.sidenav-header {
+    background-color: #151624;
+    text-align: center;
+    padding: 1rem;
+    color: #C9D5E0;
+    font-size: 1.5rem!important;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.5rem;
+}
+
+h4 {
+    margin-top: 0;
+    color: #C9D5E0;
+}
+
+h2 {
+    color: #e4e7ea;
+}
+
+.form-control {
+    background-color: #050613!important;
+    color: #C6C1BA!important; /* 63FFF0 */
+}
+
+.form-group {
+    padding-bottom: 1rem;
+}
+
+.actividad-listar {
+    font-size: 0.9rem;
+    color: #C6C1BA;
+    border-color: #C9D5E0!important;
+}
+
+.actividad-editar {
+    background-color: #0B121E!important;
+    border-color: #0B121E!important;
+    color: #C6C1BA!important;
+}
+
+.actividad-editar :hover{
+    background-color: #0B121E!important;
+    border-color: #0B121E!important;
+    color: #FFFFFF!important;
+}
+
+.actividad-listar td {
+    vertical-align: middle;
+}
+
+.contenedor-actividad {
+    padding: 0!important;
+}
+
+.content_box {
+    background-color: #0B121E;
+    padding: 1rem;
+    text-align: left;
+    vertical-align: text-top;
+    border-radius: 5px;
+    color: #C6C1BA;
+    font-size: 1rem;
+}
+
+.actividad_resumen {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.actividad_reciente {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.crear_actividad {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.editar_actividad {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.listar_actividades {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}

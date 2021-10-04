@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+    <h2>Actividades</h2>
+    <div class="content_box">
+        <table class="table actividad-listar">
+            <thead>
+            <tr>
+                <th scope="col">Editar</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Días Hábiles</th>
+                <th scope="col">Días Calendario</th>
+                <th scope="col">Descripción</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if actividades %}
+                {% for actividad in actividades %}
+                    <tr>
+                        <td>
+                            <a href="/editar-actividad/{{ actividad.id }}" class="btn btn-secondary actividad-editar"><i class="bi bi-tools"></i></a>
+                        </td>
+                        <td>{{ actividad.nombre }}</td>
+                        <td>{{ actividad.dias_habiles }}</td>
+                        <td>{{ actividad.dias_calendario }}</td>
+                        <td>{{ actividad.descripcion }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock contenido %}

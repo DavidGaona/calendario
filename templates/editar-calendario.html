@@ -1,0 +1,43 @@
+{% extends 'actividad.html' %}
+
+{% block contenido %}
+    <h2>Crear calendario</h2>
+    <div class="content_box">
+        <form method="post" action="">
+            {% csrf_token %}
+
+            <div class="contenedor-actividad container">
+                <div class="row">
+                    <div class="col-6 form-group">
+                        {{ form.nombre.label_tag }}
+                        {{ form.nombre }}
+                    </div>
+
+                    <div class="col-2 form-group">
+                        {{ form.dias_habiles.label_tag }}
+                        {{ form.dias_habiles }}
+                    </div>
+
+                    <div class="col-2 form-group">
+                        {{ form.dias_calendario.label_tag }}
+                        {{ form.dias_calendario }}
+                    </div>
+
+                    <div class="col-2 form-group">
+                        {{ form.maximo_deducible.label_tag }}
+                        {{ form.maximo_deducible }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form.descripcion.label_tag }}
+                {{ form.descripcion }}
+            </div>
+
+            <input type="submit" class="btn btn-success" value="Crear Actividad"/>
+        </form>
+
+    </div>
+{% endblock contenido %}
+
