@@ -1,0 +1,6 @@
+apps/__pycache__/
+apps/calendario/__pycache__/
+apps/calendario/migrations/0001_initial.py
+apps/calendario/migrations/__pycache__/
+core/__pycache__/
+virtualenv/

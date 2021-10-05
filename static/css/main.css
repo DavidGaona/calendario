@@ -1,7 +1,7 @@
 body {
     font-family: Consolas, serif;
     font-size: 1.0rem;
-    background-color: #050612;
+    background-color: #FFFFFF;
 }
 
 .main {
@@ -17,7 +17,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #050613;
+    background-color: #293241;
     overflow-x: hidden;
     text-align: center;
     vertical-align: center;
@@ -27,24 +27,24 @@ body {
 }
 
 .sidenav a {
-    padding: 6px 8px 6px 16px;
+    padding: 12px 8px 12px 16px;
     text-decoration: none;
     font-size: 1.2rem;
-    color: #7E96B0;
+    color: #FFFFFF;
     display: block;
     text-align: left;
 }
 
 .sidenav a:hover {
     color: #FFFFFF;
-    background-color: #2F324A;
+    background-color: #3d5a80;
 }
 
 .sidenav-header {
-    background-color: #151624;
+    background-color: #FFFFFF;
     text-align: center;
     padding: 1rem;
-    color: #C9D5E0;
+    color: #3d5a80;
     font-size: 1.5rem!important;
 }
 
@@ -56,16 +56,16 @@ body {
 
 h4 {
     margin-top: 0;
-    color: #C9D5E0;
+    color: #293241;
 }
 
 h2 {
-    color: #e4e7ea;
+    color: #293241;
 }
 
 .form-control {
-    background-color: #050613!important;
-    color: #C6C1BA!important; /* 63FFF0 */
+    background-color: #EAEAEA!important;
+    color: #293241!important; /* 63FFF0 */
 }
 
 .form-group {
@@ -74,19 +74,19 @@ h2 {
 
 .actividad-listar {
     font-size: 0.9rem;
-    color: #C6C1BA;
+    color: #FFFFFF;
     border-color: #C9D5E0!important;
 }
 
 .actividad-editar {
-    background-color: #0B121E!important;
-    border-color: #0B121E!important;
-    color: #C6C1BA!important;
+    background-color: #293241!important;
+    border-color: #293241!important;
+    color: #FFFFFF!important;
 }
 
 .actividad-editar :hover{
-    background-color: #0B121E!important;
-    border-color: #0B121E!important;
+    background-color: #293241!important;
+    border-color: #293241!important;
     color: #FFFFFF!important;
 }
 
@@ -96,14 +96,15 @@ h2 {
 
 .contenedor-actividad {
     padding: 0!important;
+    max-width: inherit!important;
 }
 
 .content_box {
-    background-color: #0B121E;
+    background-color: #293241;
     padding: 1rem;
     text-align: left;
     vertical-align: text-top;
     border-radius: 5px;
-    color: #C6C1BA;
+    color: #FFFFFF;
     font-size: 1rem;
 }
