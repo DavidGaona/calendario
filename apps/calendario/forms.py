@@ -1,6 +1,6 @@
 from django import forms
-from .models import Actividad, Calendario
-from django.contrib.admin.widgets import AdminDateWidget
+
+from .models import Actividad, Calendario, ActividadCalendario
 
 
 class ActividadForm(forms.ModelForm):
@@ -36,9 +36,21 @@ class EditarActividadForm(forms.ModelForm):
 class CrearCalendarioForm(forms.ModelForm):
     class Meta:
         model = Calendario
-        fields = ('nombre', 'fecha_inicio')
+        fields = ('nombre', )
 
         widgets = {
-            "nombre": forms.TextInput(attrs={"class": "form-control"}),
-            "fecha_inicio": forms.DateField(widget=AdminDateWidget)
+            "nombre": forms.TextInput(attrs={"class": "form-control"})
+        }
+
+
+class EditarCalendarioForm(forms.ModelForm):
+    class Meta:
+        model = ActividadCalendario
+        fields = ('actividad', 'calendario', 'prioridad', 'fecha_inicio_esperada',
+                  'debe_ser_dia_especifico')
+
+        widgets = {
+            "actividad": forms.TextInput(attrs={"class": "form-control"}),
+            "calendario": forms.TextInput(attrs={"class": "form-control"}),
+            "prioridad": forms.NumberInput(attrs={"class": "form-control"})
         }

@@ -1,5 +1,18 @@
 {% extends 'actividad.html' %}
 
+{% block contenido %}
+    <h2>Crear calendario</h2>
+    <div class="content_box">
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.nombre.label_tag }}
+                {{ form.nombre }}
+            </div>
+            <input type="submit" class="btn btn-success" value="Crear Calendario"/>
+        </form>
+    </div>
+{% endblock contenido %}
 
 
 

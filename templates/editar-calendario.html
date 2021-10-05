@@ -1,43 +1,48 @@
 {% extends 'actividad.html' %}
 
 {% block contenido %}
-    <h2>Crear calendario</h2>
+    <h2>Editar calendario</h2>
     <div class="content_box">
         <form method="post" action="">
             {% csrf_token %}
-
-            <div class="contenedor-actividad container">
-                <div class="row">
-                    <div class="col-6 form-group">
-                        {{ form.nombre.label_tag }}
-                        {{ form.nombre }}
-                    </div>
-
-                    <div class="col-2 form-group">
-                        {{ form.dias_habiles.label_tag }}
-                        {{ form.dias_habiles }}
-                    </div>
-
-                    <div class="col-2 form-group">
-                        {{ form.dias_calendario.label_tag }}
-                        {{ form.dias_calendario }}
-                    </div>
-
-                    <div class="col-2 form-group">
-                        {{ form.maximo_deducible.label_tag }}
-                        {{ form.maximo_deducible }}
-                    </div>
-                </div>
+            <div class="form-group">
+                {{ form.actividad.label_tag }}
+                {{ form.actividad }}
             </div>
 
             <div class="form-group">
-                {{ form.descripcion.label_tag }}
-                {{ form.descripcion }}
+                {{ form.calendario.label_tag }}
+                {{ form.calendario }}
             </div>
 
-            <input type="submit" class="btn btn-success" value="Crear Actividad"/>
-        </form>
+            <div class="form-group">
+                {{ form.prioridad.label_tag }}
+                {{ form.prioridad }}
+            </div>
 
+            <div class="form-group">
+                {{ form.fecha_inicio_esperada.label_tag }}
+                {{ form.fecha_inicio_esperada }}
+            </div>
+
+            <div class="form-group">
+                {{ form.debe_ser_dia_especifico.label_tag }}
+                {{ form.debe_ser_dia_especifico }}
+            </div>
+
+            <input type="submit" class="btn btn-success" value="Modificar Actividad"/>
+        </form>
     </div>
 {% endblock contenido %}
 
+###
+actividad = models.ForeignKey(Actividad, on_delete=models.CASCADE)
+calendario = models.ForeignKey(Calendario, on_delete=models.CASCADE)
+prioridad = models.IntegerField(null=True)
+fecha_inicio_esperada = models.DateField(null=True)
+fecha_inicio_real = models.DateField(null=True)
+DIAS = (('Ninguno', 'Ninguno'), ('Lunes', 'Lunes'), ('Martes', 'Martes'), ('Miércoles', 'Miércoles'),
+('Jueves', 'Jueves'), ('Viernes', 'Viernes'), ('Sábado', 'Sábado'), ('Domingo', 'Domingo'))
+debe_ser_dia_especifico = models.TextField(default='Ninguno', choices=DIAS)
+duracion_real = models.IntegerField(null=True)
+###

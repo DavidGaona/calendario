@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+    <h2>Actividades del calendario</h2>
+    <div class="content_box">
+        <table id="table-1" class="table actividad-listar">
+            <thead>
+            <tr>
+                <th scope="col">Editar</th>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Fecha Inicio</th>
+                <th scope="col">Día específico</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if actividades %}
+                {% for actividad in actividades %}
+                    <tr>
+                        <td>
+                            <a href="/editar-calendario/{{ actividad.id }}" class="btn btn-secondary actividad-editar"><i class="bi bi-tools"></i></a>
+                        </td>
+                        <td>{{ actividad.actividad }}</td>
+                        <td>{{ actividad.dias_habiles }}</td>
+                        <td>{{ actividad.fecha_inicio_esperada  }}</td>
+                        <td>{{ actividad.debe_ser_dia_especifico  }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock contenido %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Initialise the table
+            $("#table-1").tableDnD();
+        });
+    </script>
+{% endblock javascript %}
