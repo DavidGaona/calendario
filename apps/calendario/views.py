@@ -1,4 +1,8 @@
-from django.shortcuts import render, redirect
+from datetime import datetime, timedelta
+
+from django.shortcuts import get_object_or_404, render
+from django.shortcuts import redirect
+from swingtime import models as swingtime
 
 from .forms import ActividadForm, EditarActividadForm, CrearCalendarioForm, EditarCalendarioForm
 from .models import Actividad, Calendario, ActividadCalendario
@@ -82,3 +86,40 @@ def editar_calendario(request, pk):
 
     context = {"form": form}
     return render(request, "editar-calendario.html", context)
+
+
+def reportes(request):
+    import jwt
+    import time
+
+    METABASE_SITE_URL = "http://localhost:3000"
+    METABASE_SECRET_KEY = "3e89e8f35e0e2e0082a921668ca2a20028da8628ec5252cc88f560af5277f9d5"
+
+    payload = {
+        "resource": {"dashboard": 1},
+        "params": {
+
+        },
+        "exp": round(time.time()) + (60 * 10) # 10 minute expiration
+    }
+    token = jwt.encode(payload, METABASE_SECRET_KEY, algorithm="HS256")
+
+    iframeUrl = METABASE_SITE_URL + "/embed/dashboard/" + token + "#theme=night&bordered=true&titled=true"
+    context = {
+        'reportes': iframeUrl
+    }
+    return render(request, "reportes.html", context)
+
+
+def event_type(request, abbr):
+    event_type = get_object_or_404(swingtime.EventType, abbr=abbr)
+    now = datetime.now()
+    occurrences = swingtime.Occurrence.objects.filter(
+        event__event_type=event_type,
+        start_time__gte=now,
+        start_time__lte=now+timedelta(days=+30)
+    )
+    return render(request, 'upcoming_by_event_type.html', {
+        'occurrences': occurrences,
+        'event_type': event_type
+    })

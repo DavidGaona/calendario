@@ -10,14 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from pathlib import Path
 import datetime
+from pathlib import Path
 
 try:
     # dateutil is an absolute requirement
     import dateutil
 except ImportError:
-    raise ImportError('django-swingtime requires the "python-dateutil" package')    
+    raise ImportError('django-swingtime requires the "python-dateutil" package')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,9 +31,7 @@ SECRET_KEY = 'django-insecure-6xc-qrfr0+8d@fn41(x1d0pqg0cj@h0$wum8mg2j6a3958dk&@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -47,7 +45,6 @@ INSTALLED_APPS = [
     'apps.calendario',
     'core',
     'bootstrap_datepicker_plus',
-    'schedule',
     'swingtime',
 ]
 
@@ -88,10 +85,7 @@ SWINGTIME = {
     'TIMESLOT_END_TIME_DURATION': datetime.timedelta(hours=6.5)
 }
 
-
-
 WSGI_APPLICATION = 'core.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -101,13 +95,12 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "calendario",
         "USER": "postgres",
-        "PASSWORD": "juanes2330",
+        "PASSWORD": "postgres452",
         "HOST": "localhost",
         "PORT": "5432",
         "ATOMIC_REQUESTS": True
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -127,7 +120,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -140,7 +132,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
