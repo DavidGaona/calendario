@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+    <h2>Reportes</h2>
+    <div class="content_box">
+        <div>
+            <iframe
+            src="{{reportes}}"
+            frameborder="0"
+            width="100%"
+            height="600"
+            allowtransparency
+            ></iframe>
+        </div>
+        
+    </div>
+
+{% endblock contenido %}
