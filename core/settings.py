@@ -11,7 +11,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import datetime
 
+try:
+    # dateutil is an absolute requirement
+    import dateutil
+except ImportError:
+    raise ImportError('django-swingtime requires the "python-dateutil" package')    
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,6 +31,7 @@ SECRET_KEY = 'django-insecure-6xc-qrfr0+8d@fn41(x1d0pqg0cj@h0$wum8mg2j6a3958dk&@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = []
 
 
@@ -37,10 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'apps.calendario',
     'core',
-    'bootstrap_datepicker_plus'
+    'bootstrap_datepicker_plus',
+    'schedule',
+    'swingtime',
 ]
 
 MIDDLEWARE = [
@@ -67,10 +75,20 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
+                'swingtime.context_processors.current_datetime',
+                'django.template.context_processors.csrf'
             ],
         },
     },
 ]
+
+SWINGTIME = {
+    'TIMESLOT_START_TIME': datetime.time(14),
+    'TIMESLOT_END_TIME_DURATION': datetime.timedelta(hours=6.5)
+}
+
+
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
@@ -83,7 +101,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "calendario",
         "USER": "postgres",
-        "PASSWORD": "postgres452",
+        "PASSWORD": "juanes2330",
         "HOST": "localhost",
         "PORT": "5432",
         "ATOMIC_REQUESTS": True
@@ -137,3 +155,10 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+try:
+    import django_extensions
+except ImportError:
+    pass
+else:
+    INSTALLED_APPS += ('django_extensions',)
