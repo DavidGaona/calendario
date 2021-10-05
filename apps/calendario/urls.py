@@ -10,4 +10,6 @@ urlpatterns = [
     path('editar-actividad/<str:pk>/', views.editar_actividad, name="editar-actividad"),
     re_path(r'^swingtime/events/type/([^/]+)/$', views.event_type, name='karate-event'),
     path('swingtime/', include('swingtime.urls')),
+    path('reportes/', views.reportes, name="reportes"),
+
 ]

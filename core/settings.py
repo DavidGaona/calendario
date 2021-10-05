@@ -77,6 +77,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',
                 'swingtime.context_processors.current_datetime',
+                'django.template.context_processors.csrf'
             ],
         },
     },
